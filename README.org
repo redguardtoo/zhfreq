@@ -1,0 +1,22 @@
+* zhfreq 
+中文词频的统计脚本.
+
+Emacs查看中文字频. 格式化 pyim 中文输入法辞典.
+* Usage
+
+** Emacs 脚本
+格式化pyim词库: zhfreq-format-pyim-dictionary
+
+查询词频:  zhfreq-get-word-freq
+
+** 生成词频
+在 "all-words.txt" 包含所有要统计的词和字.
+
+- 运行以下脚本将其分解为多个文本文件,
+#+begin_src sh
+split -d --additional-suffix=.txt -l 8000 all-words.txt
+#+end_src
+
+- 确保根目录里有名为 dict.txt 的语料
+
+- 将分解得到的文本文件移至 words 子目录, 然后运行子目录中的 build 脚本. 输出的 *.freq 即词频. 注意 rust 编程语言环境必须存在.

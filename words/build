@@ -1,0 +1,2 @@
+#/bin/bash
+rustc ../create-freq-lookup.rs && find . -name "*.txt" | parallel "./create-freq-lookup {} ../dict.txt > {}.freq"
